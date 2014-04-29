@@ -338,6 +338,27 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      local: {
+        options: {
+          remote: '../',
+          branch: 'build'
+        }
+      },
+      remote: {
+        options: {
+          remote: 'https://github.com/daniel81bcn/Medistream.git',
+          branch: 'gh-pages'
+        }
+      }
     }
   });
 
