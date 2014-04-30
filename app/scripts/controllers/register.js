@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('medistreamApp')
-  .controller('CongressCtrl', function ($scope) {
+  .controller('RegisterCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

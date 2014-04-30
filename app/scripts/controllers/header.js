@@ -3,23 +3,21 @@
 angular.module('medistreamApp')
   .controller('HeaderCtrl', function ($scope, $window, $location) {
 
-    $scope.tabs = ['congresses'];
-
     $scope.isActive = function (tab) {
       return $location.path().indexOf('/' + tab) === 0;
     };
 
-    $scope.login = function() {
+    $scope.signin = function() {
 
-      // TODO login
+      // TODO signin
       $scope.user = {
         name: 'fake user'
       };
     };
 
-    $scope.logout = function() {
+    $scope.signout = function() {
 
-      // TODO logout
+      // TODO signout
       $scope.user = null;
     };
   });

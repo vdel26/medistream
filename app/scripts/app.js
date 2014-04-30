@@ -4,25 +4,26 @@ angular.module('medistreamApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'ui.bootstrap.carousel'
 ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/landing.html',
+        controller: 'LandingCtrl'
       })
-      .when('/congresses', {
-        templateUrl: 'views/congresses.html',
-        controller: 'CongressesCtrl'
+      .when('/events', {
+        templateUrl: 'views/events.html',
+        controller: 'EventsCtrl'
       })
-      .when('/congresses/:id', {
-        templateUrl: 'views/congress.html',
-        controller: 'CongressCtrl'
+      .when('/events/:id', {
+        templateUrl: 'views/event.html',
+        controller: 'EventCtrl'
       })
-      .when('/lectures/:id', {
-        templateUrl: 'views/lecture.html',
-        controller: 'LectureCtrl'
+      .when('/videos/:id', {
+        templateUrl: 'views/video.html',
+        controller: 'VideoCtrl'
       })
       .when('/collaborate', {
         templateUrl: 'views/collaborate.html',
@@ -36,9 +37,9 @@ angular.module('medistreamApp', [
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/signup', {
-        templateUrl: 'views/signup.html',
-        controller: 'SignupCtrl'
+      .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl'
       })
       .when('/account', {
         templateUrl: 'views/account.html',
@@ -47,10 +48,6 @@ angular.module('medistreamApp', [
       .when('/terms', {
         templateUrl: 'views/terms.html',
         controller: 'TermsCtrl'
-      })
-      .when('/privacy', {
-        templateUrl: 'views/privacy.html',
-        controller: 'PrivacyCtrl'
       })
       .otherwise({
         redirectTo: '/'
