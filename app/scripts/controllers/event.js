@@ -1,10 +1,6 @@
 'use strict';
 
 angular.module('medistreamApp')
-  .controller('EventCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('EventCtrl', function ($scope, $routeParams, EventResource) {
+    $scope.event = EventResource.get({id: $routeParams.id});
   });
