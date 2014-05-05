@@ -24,3 +24,11 @@
     right: 0;
     text-align: left;
 }
+
+#login-holder {
+    display: none;
+}
+
+#main {
+    display: none;
+}

@@ -5,6 +5,7 @@ angular.module('medistreamApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+  'http-auth-interceptor',
   'ui.bootstrap.carousel'
 ])
   .config(function ($routeProvider) {
@@ -52,4 +53,12 @@ angular.module('medistreamApp', [
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function ($cookieStore, $rootScope, $http) {
+//    if ($cookieStore.get('djangotoken')) {
+//      $http.defaults.headers.common.Authorization = 'Token ' + $cookieStore.get('djangotoken');
+//      //document.getElementById('main').style.display = 'block';
+//    } else {
+//      document.getElementById('login-holder').style.display = 'block';
+//    }
   });

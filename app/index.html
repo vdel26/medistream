@@ -28,6 +28,10 @@
     <div ng-include="'views/header.html'"></div>
 
     <div id="wrap">
+      <div id="login-holder" class="container">
+        <div login></div>
+      </div>
+
       <div class="content" ng-view=""></div>
 
       <div id="push"></div>
@@ -53,6 +57,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-ui-bootstrap/src/transition/transition.js"></script>
     <script src="bower_components/angular-ui-bootstrap/src/carousel/carousel.js"></script>
+    <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -69,6 +74,8 @@
     <script src="scripts/controllers/account.js"></script>
     <script src="scripts/controllers/terms.js"></script>
     <!--<script src="template/templates.js"></script-->
+    <script src="scripts/services/event-resource.js"></script>
+    <script src="scripts/directives/login.js"></script>
     <!-- endbuild -->
 </body>
 </html>
