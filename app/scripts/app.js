@@ -53,12 +53,12 @@ angular.module('medistreamApp', [
       .otherwise({
         redirectTo: '/'
       });
-  })
-  .run(function ($cookieStore, $rootScope, $http) {
+  });
+//  .run(function ($cookieStore, $rootScope, $http) {
 //    if ($cookieStore.get('djangotoken')) {
 //      $http.defaults.headers.common.Authorization = 'Token ' + $cookieStore.get('djangotoken');
 //      //document.getElementById('main').style.display = 'block';
 //    } else {
 //      document.getElementById('login-holder').style.display = 'block';
 //    }
-  });
+//  });
