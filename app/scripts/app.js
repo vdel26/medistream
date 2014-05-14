@@ -8,7 +8,7 @@ angular.module('medistreamApp', [
   'http-auth-interceptor',
   'ui.bootstrap.carousel'
 ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/landing.html',
@@ -53,6 +53,17 @@ angular.module('medistreamApp', [
       .otherwise({
         redirectTo: '/'
       });
+
+    // append API base path passed as a URL parameter
+    $httpProvider.interceptors.push(function ($location) {
+      var apiBasePath = $location.search().apiBasePath || '/backend/api';
+      return {
+        request: function (config) {
+          config.url = config.url.replace('API_BASE_PATH', apiBasePath);
+          return config;
+        }
+      };
+    });
   });
 //  .run(function ($cookieStore, $rootScope, $http) {
 //    if ($cookieStore.get('djangotoken')) {

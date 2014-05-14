@@ -2,5 +2,5 @@
 
 angular.module('medistreamApp')
   .service('EventResource', function EventResource($resource) {
-    return $resource('/backend/api/events/:id');
+    return $resource('API_BASE_PATH/events/:id');
   });
