@@ -314,6 +314,13 @@ module.exports = function (grunt) {
       }
     },
 
+    htmlrefs: {
+      dist: {
+        src: '<%= yeoman.dist %>/index.html',
+        dest: '<%= yeoman.dist %>/index.html'
+      }
+    },
+
     buildcontrol: {
       options: {
         dir: 'dist',
@@ -371,7 +378,8 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+    'htmlrefs'
   ]);
 
   grunt.registerTask('default', [

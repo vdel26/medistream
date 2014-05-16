@@ -41,15 +41,22 @@
     <div ng-include="'views/footer.html'"></div>
 
     <!--[if lt IE 9]>
-    <!-- build:js scripts/shim.js -->
+    <!-- ref:js //cdnjs.cloudflare.com/ajax/libs/es5-shim/2.3.0/es5-shim.min.js -->
     <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <!-- endref -->
+    <!-- ref:js //cdnjs.cloudflare.com/ajax/libs/json3/3.3.1/json3.min.js -->
     <script src="bower_components/json3/lib/json3.min.js"></script>
-    <!-- endbuild -->
+    <!-- endref -->
     <![endif]-->
 
-    <!-- build:js scripts/vendor.js -->
+    <!-- ref:js //cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- endref -->
+    <!-- ref:js //cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.15/angular.js -->
     <script src="bower_components/angular/angular.js"></script>
+    <!-- endref -->
+
+    <!-- build:js scripts/vendor.js -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -73,10 +80,10 @@
     <script src="scripts/controllers/register.js"></script>
     <script src="scripts/controllers/account.js"></script>
     <script src="scripts/controllers/terms.js"></script>
-    <!--<script src="template/templates.js"></script-->
     <script src="scripts/services/event-resource.js"></script>
     <script src="scripts/services/talk-resource.js"></script>
     <script src="scripts/directives/login.js"></script>
+    <!--<script src="template/templates.js"></script-->
     <!-- endbuild -->
 </body>
 </html>
