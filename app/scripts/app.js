@@ -55,8 +55,14 @@ angular.module('medistreamApp', [
       });
 
     // append API base path passed as a URL parameter
-    $httpProvider.interceptors.push(function ($location) {
-      var apiBasePath = $location.search().apiBasePath || '/backend/api';
+    $httpProvider.interceptors.push(function () {
+      
+      var getURLParameter = function (name, defaultValue) {
+        var regex = new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)');
+        return decodeURIComponent((regex.exec(location.search) || [, '' ])[1].replace(/\+/g, '%20')) || defaultValue;
+      };
+      var apiBasePath = getURLParameter('apiBasePath', '/backend/api');
+
       return {
         request: function (config) {
           config.url = config.url.replace('API_BASE_PATH', apiBasePath);
