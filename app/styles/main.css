@@ -32,3 +32,26 @@
 #main {
     display: none;
 }
+
+.breadcrumb {
+    margin-top: 10px;
+}
+
+.lead-short {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-height: 84px;      /* fallback */
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+ul.list-clickable li {
+    border-top: 1px solid #eeeeee;
+    padding: 20px 10px 0px 10px;
+}
+
+ul.list-clickable li:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
