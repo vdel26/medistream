@@ -5,6 +5,7 @@ angular.module('medistreamApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+  'fmt',
   'http-auth-interceptor',
   'ui.bootstrap.carousel'
 ])
@@ -22,9 +23,9 @@ angular.module('medistreamApp', [
         templateUrl: 'views/event.html',
         controller: 'EventCtrl'
       })
-      .when('/videos/:id', {
-        templateUrl: 'views/video.html',
-        controller: 'VideoCtrl'
+      .when('/talks/:id', {
+        templateUrl: 'views/talk.html',
+        controller: 'TalkCtrl'
       })
       .when('/collaborate', {
         templateUrl: 'views/collaborate.html',

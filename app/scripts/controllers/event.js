@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('medistreamApp')
-  .controller('EventCtrl', function ($scope, $routeParams, $filter, EventResource, TalkResource) {
+  .controller('EventCtrl', function ($scope, $routeParams, $filter, $location, EventResource, TalkResource) {
 
     var eventId = $routeParams.id;
 
@@ -22,4 +22,9 @@ angular.module('medistreamApp')
         $scope.talksByDay[sdate].push(talk);
       });
     });
+
+    // select talk
+    $scope.selectTalk = function(id) {
+      $location.path('talks/' + id);
+    };
   });
