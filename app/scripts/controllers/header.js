@@ -1,23 +1,17 @@
 'use strict';
 
 angular.module('medistreamApp')
-  .controller('HeaderCtrl', function ($scope, $window, $location) {
+  .controller('HeaderCtrl', function ($rootScope, $scope, $location, authService) {
 
     $scope.isActive = function (tab) {
       return $location.path().indexOf('/' + tab) === 0;
     };
 
-    $scope.signin = function() {
-
-      // TODO signin
-      $scope.user = {
-        name: 'fake user'
-      };
+    $scope.login = function (newUser) {
+      $rootScope.$broadcast('event:auth-loginRequired', {newUser: newUser});
     };
 
-    $scope.signout = function() {
-
-      // TODO signout
-      $scope.user = null;
+    $scope.logout = function () {
+      authService.loginCancelled({}, 'logout');
     };
   });

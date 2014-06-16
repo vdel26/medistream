@@ -28,12 +28,13 @@
     <div ng-include="'views/header.html'"></div>
 
     <div id="wrap">
-      <div id="login-holder" class="container">
-        <div login></div>
-      </div>
+      <!-- content -->
+      <div class="content" ng-view="" ng-if="!loginRequired"></div>
 
-      <div class="content" ng-view=""></div>
+      <!-- login -->
+      <div class="login" login ng-if="loginRequired"></div>
 
+      <!-- helper for sticky footer -->
       <div id="push"></div>
     </div>
 
@@ -78,7 +79,6 @@
     <script src="scripts/controllers/collaborate.js"></script>
     <script src="scripts/controllers/contact.js"></script>
     <script src="scripts/controllers/about.js"></script>
-    <script src="scripts/controllers/register.js"></script>
     <script src="scripts/controllers/account.js"></script>
     <script src="scripts/controllers/terms.js"></script>
     <script src="scripts/services/event-resource.js"></script>

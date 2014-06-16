@@ -1,22 +1,37 @@
 'use strict';
 
 angular.module('medistreamApp')
-  .directive('login', function ($http, $cookieStore, authService) {
+  .directive('login', function ($rootScope, $http, $cookieStore, $location, authService) {
     return {
       restrict: 'A',
       templateUrl: 'template/login/login.html',
       link: function ($scope, $element) {
-        $element.bind('submit', function () {
 
-          $http.post('http://localhost:8001/api-token-auth/', {
+        var onLoginSuccess = function (response) {
+
+          // add auth header for deferred requests
+          var updater = function (config) {
+            config.headers.Authorization = 'Token ' + response.token;
+            return config;
+          };
+
+          // emit login confirmed
+          authService.loginConfirmed({
+            username: $scope.username,
+            token: response.token
+          }, updater);
+        };
+
+        $scope.login = function () {
+          $http.post('API_BASE_PATH/api-token-auth/', {
             username: $scope.username,
             password: $scope.password
-          })
-            .success(function (response) {
-              $cookieStore.put('djangotoken', response.token);
-              $http.defaults.headers.common.Authorization = 'Token ' + response.token;
-              authService.loginConfirmed(response);
-            });
+          }).success(onLoginSuccess);
+        };
+
+        // show login or registration if new user
+        $rootScope.$on('$routeChangeStart', function (scope, next) {
+          $scope.newUser = (next.params.newUser === 'true');
         });
       }
     };

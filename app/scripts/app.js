@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('medistreamApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute',
-  'fmt',
-  'http-auth-interceptor',
-  'ui.bootstrap.carousel'
-])
-  .config(function ($routeProvider, $httpProvider) {
+    'ngCookies',
+    'ngResource',
+    'ngSanitize',
+    'ngRoute',
+    'fmt',
+    'http-auth-interceptor',
+    'ui.bootstrap.carousel'
+  ])
+  .config(function ($routeProvider, $httpProvider, $resourceProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/landing.html',
@@ -55,9 +55,13 @@ angular.module('medistreamApp', [
         redirectTo: '/'
       });
 
+    // Don't strip trailing slashes from calculated URLs
+    $resourceProvider.defaults.stripTrailingSlashes = false;
+
     // append API base path passed as a URL parameter
     $httpProvider.interceptors.push(function () {
-      
+
+      // retrieve the API base path
       var getURLParameter = function (name, defaultValue) {
         var regex = new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)');
         return decodeURIComponent((regex.exec(location.search) || [, '' ])[1].replace(/\+/g, '%20')) || defaultValue;
@@ -66,17 +70,67 @@ angular.module('medistreamApp', [
 
       return {
         request: function (config) {
+
+          // use the API base path for all requests with API_BASE_PATH token
           config.url = config.url.replace('API_BASE_PATH', apiBasePath);
           return config;
         }
       };
     });
+  })
+  .run(function ($rootScope, $cookieStore, $http, $route, $location) {
+
+    // set auth token for future requests
+    var username = $cookieStore.get('username');
+    var token = $cookieStore.get('djangotoken');
+    if (username && token) {
+      $rootScope.user = {username: username};
+      $http.defaults.headers.common.Authorization = 'Token ' + token;
+    }
+
+    // authentication required
+    $rootScope.$on('event:auth-loginRequired', function (event, data) {
+      console.log('event:auth-loginRequired');
+
+      // show login (l) or registration (r)
+      $location.search('newUser', data.newUser ? 'true' : 'false');
+      $rootScope.loginRequired = true;
+    });
+
+    // authentication confirmed
+    $rootScope.$on('event:auth-loginConfirmed', function (event, response) {
+      console.log('event:auth-loginConfirmed');
+
+      // save auth
+      $cookieStore.put('djangotoken', response.token);
+      $cookieStore.put('username', response.username);
+      $http.defaults.headers.common.Authorization = 'Token ' + response.token;
+      $rootScope.user = {username: response.username};
+      $location.search('newUser', null);
+
+      // hide login
+      $rootScope.loginRequired = false;
+    });
+
+    // logout
+    $rootScope.$on('event:auth-loginCancelled', function () {
+      console.log('event:auth-loginCancelled');
+
+      // clean auth
+      $cookieStore.remove('djangotoken');
+      $cookieStore.remove('username');
+      $http.defaults.headers.common.Authorization = undefined;
+      $rootScope.user = null;
+      $route.reload();
+    });
+
+    // hide login view when route changes.
+    $rootScope.$on('$routeChangeStart', function (scope, next, current) {
+
+      // hide if new view, not in login/registration or path changed
+      if (!current || !current.$$route || typeof next.params.newUser === 'undefined' ||
+        next.$$route.originalPath !== current.$$route.originalPath) {
+        $rootScope.loginRequired = false;
+      }
+    });
   });
-//  .run(function ($cookieStore, $rootScope, $http) {
-//    if ($cookieStore.get('djangotoken')) {
-//      $http.defaults.headers.common.Authorization = 'Token ' + $cookieStore.get('djangotoken');
-//      //document.getElementById('main').style.display = 'block';
-//    } else {
-//      document.getElementById('login-holder').style.display = 'block';
-//    }
-//  });

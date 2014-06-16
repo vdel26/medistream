@@ -16,6 +16,10 @@ html, body {
     padding-top: 50px;
 }
 
+#wrap > .login {
+    padding-top: 50px;
+}
+
 /* Set the fixed height of the footer here */
 #push {
     height: 52px;
