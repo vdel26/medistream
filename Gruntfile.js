@@ -3,6 +3,8 @@
 
 module.exports = function (grunt) {
 
+  var pkg = require('./package.json');
+
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -331,13 +333,15 @@ module.exports = function (grunt) {
       local: {
         options: {
           remote: '../',
-          branch: 'build'
+          branch: 'build',
+          tag: pkg.version
         }
       },
       remote: {
         options: {
           remote: 'https://github.com/daniel81bcn/Medistream.git',
-          branch: 'gh-pages'
+          branch: 'gh-pages',
+          tag: pkg.version
         }
       }
     }
