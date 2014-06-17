@@ -1,0 +1,49 @@
+/*
+  Allow angular.js to be loaded in body, hiding cloaked elements until
+  templates compile.  The !important is important given that there may be
+  other selectors that are more specific or come later and might alter display.
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.carousel-inner img {
+    width: 100%;
+}
+
+.carousel-caption {
+    top: 20px;
+    left: 0;
+    right: 0;
+    text-align: left;
+}
+
+.breadcrumb {
+    margin-top: 10px;
+}
+
+.lead-short {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-height: 84px;      /* fallback */
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+ul.list-clickable li {
+    border-top: 1px solid #eeeeee;
+    padding: 20px 10px 0px 10px;
+}
+
+ul.list-clickable li:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
