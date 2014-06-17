@@ -249,7 +249,7 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'fonts/*'
+            'styles/bootstrap/*'
           ]
         }, {
           expand: true,
