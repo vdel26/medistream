@@ -1,6 +1,11 @@
 {
   "name": "medistream",
   "version": "0.1.0",
+  "homepage": "http://medistream.es",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daniel81bcn/medistream"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "^0.4.4",
