@@ -5,7 +5,7 @@ angular.module('medistreamApp')
     return {
       restrict: 'A',
       templateUrl: 'template/login/login.html',
-      link: function ($scope, $element) {
+      link: function ($scope) {
 
         var onLoginSuccess = function (response) {
 
