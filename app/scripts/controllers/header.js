@@ -7,7 +7,7 @@ angular.module('medistreamApp')
       return $location.path().indexOf('/' + tab) === 0;
     };
 
-    $scope.login = function (newUser) {
+    $scope.showLogin = function (newUser) {
       $rootScope.$broadcast('event:auth-loginRequired', {newUser: newUser});
     };
 

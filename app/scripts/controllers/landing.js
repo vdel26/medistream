@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('medistreamApp')
-  .controller('LandingCtrl', function ($scope, $cookieStore) {
+  .controller('LandingCtrl', function ($rootScope, $scope, $cookieStore) {
     $scope.slides = [
       {
         image: 'images/slide1.png',
@@ -14,6 +14,10 @@ angular.module('medistreamApp')
         description: 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
       }
     ];
+
+    $scope.showLogin = function (newUser) {
+      $rootScope.$broadcast('event:auth-loginRequired', {newUser: newUser});
+    };
 
     $scope.specialities = ['Dentistry', 'Anesthesia', 'Biomedicine', 'Pediatrics'];
     $scope.conf = $cookieStore.get('conf') || {
