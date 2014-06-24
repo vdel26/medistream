@@ -87,6 +87,12 @@ angular.module('medistreamApp', [
     if (username && token) {
       $rootScope.user = {username: username};
       $http.defaults.headers.common.Authorization = 'Token ' + token;
+
+      // don't show landing page if the user is already registered
+      var path = $location.path();
+      if (!path || path === '/') {
+        $location.path('events');
+      }
     }
 
     // authentication required
