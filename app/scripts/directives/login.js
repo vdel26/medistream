@@ -20,14 +20,14 @@ angular.module('medistreamApp')
 
           // emit login confirmed
           authService.loginConfirmed({
-            username: $scope.username,
+            username: $scope.email,
             token: response.token
           }, updater);
         };
 
         $scope.login = function () {
           $http.post('API_BASE_PATH/api-token-auth/', {
-            username: $scope.username,
+            username: $scope.email,
             password: $scope.password
           }).success(
             onLoginSuccess
@@ -40,7 +40,7 @@ angular.module('medistreamApp')
 
           // retrieve new user information
           var user = {
-            username: $scope.username,
+            username: $scope.email,
             email: $scope.email,
             password: $scope.password
           };

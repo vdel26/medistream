@@ -3,21 +3,21 @@
     <div class="col-md-offset-4 col-md-4">
 
       <!-- Login -->
-      <form ng-hide="newUser" role="form" ng-submit="login()">
+      <form ng-hide="newUser" name="formLogin" role="form" ng-submit="login()">
         <h1 class="page-header">Log in</h1>
         <div class="alert alert-danger" ng-if="error">
           <strong>Invalid username or password.</strong>
         </div>
         <div class="form-group">
-          <label class="control-label" for="inputUsername1">Username</label>
-          <input type="text" class="form-control" id="inputUsername1" ng-model="username" placeholder="Username" autofocus required>
+          <label class="control-label" for="inputEmail1">Email</label>
+          <input type="email" class="form-control" id="inputEmail1" ng-model="email" placeholder="Email" autofocus required>
         </div>
         <div class="form-group">
           <label class="control-label" for="inputPassword1">Password</label>
           <input type="password" class="form-control" id="inputPassword1" ng-model="password" placeholder="Password" required>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Log in</button>
+          <button type="submit" class="btn btn-primary btn-block" ng-disabled="formLogin.$invalid">Log in</button>
         </div>
         <div class="form-group">
           <small>Don't have an account? <a href="" ng-click="setNewUser(true)">Register</a>.
@@ -27,17 +27,13 @@
       <!-- Login end ### -->
 
       <!-- Register -->
-      <form ng-show="newUser" role="form" ng-submit="register()">
+      <form ng-show="newUser" name="formRegister" role="form" ng-submit="register()">
         <h1 class="page-header">Join Medistream</h1>
         <div class="alert alert-danger" ng-if="error">
           <strong>There were problems creating your account.</strong><br>
           <ul>
             <li ng-if="error.username">{{error.username[0]}}</li>
           </ul>
-        </div>
-        <div class="form-group">
-          <label class="control-label" for="inputUsername2">Username</label>
-          <input type="text" class="form-control" id="inputUsername2" ng-model="username" placeholder="Username" autofocus required>
         </div>
         <div class="form-group">
           <label class="control-label" for="inputEmail">Email address</label>
@@ -47,13 +43,17 @@
           <label class="control-label" for="inputPassword">Password</label>
           <input type="password" class="form-control" id="inputPassword" ng-model="password" placeholder="Password" required>
         </div>
+        <div class="form-group" ng-class="{'has-error': passwordRepeat && passwordRepeat !== password}">
+          <label class="control-label" for="inputPasswordRepeat">Repeat password</label>
+          <input type="password" class="form-control" id="inputPasswordRepeat" ng-model="passwordRepeat" placeholder="Repeat password" required>
+        </div>
         <div class="form-group">
           <small>By clicking on "Create an account" below, you are agreeing to the <a href="#terms" target="_blank">Terms
             of Service</a> and the <a href="#terms" target="_blank">Privacy Policy</a>.
           </small>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Create an account</button>
+          <button type="submit" class="btn btn-primary btn-block" ng-disabled="formRegister.$invalid || passwordRepeat!==password">Create an account</button>
         </div>
         <div class="form-group">
           <small>Already a Medistream member? <a href="" ng-click="setNewUser(false)">Log in</a>.
