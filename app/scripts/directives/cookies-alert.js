@@ -9,7 +9,7 @@ angular.module('medistreamApp')
 
         $scope.setCookieLawAccepted = function () {
           $cookieStore.put('cookielaw', true);
-        }
+        };
 
         // hide alert if user closed before
         if ($cookieStore.get('cookielaw')) {
