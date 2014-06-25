@@ -22,11 +22,17 @@
     <div ng-include="'views/header.html'"></div>
 
     <div id="wrap">
-      <!-- content -->
-      <div class="content" ng-view="" ng-if="!loginRequired"></div>
 
-      <!-- login -->
-      <div class="login" login ng-if="loginRequired"></div>
+      <div>
+        <!-- alert for EU cookie law -->
+        <div cookies-alert></div>
+
+        <!-- content -->
+        <div class="content" ng-view="" ng-if="!loginRequired"></div>
+
+        <!-- login -->
+        <div class="login" login ng-if="loginRequired"></div>
+      </div>
 
       <!-- helper for sticky footer -->
       <div id="push"></div>
@@ -81,6 +87,7 @@
     <script src="scripts/services/event-resource.js"></script>
     <script src="scripts/services/talk-resource.js"></script>
     <script src="scripts/directives/login.js"></script>
+    <script src="scripts/directives/cookies-alert.js"></script>
     <!--<script src="template/templates.js"></script-->
     <!-- endbuild -->
 </body>

@@ -12,12 +12,8 @@ html, body {
     margin: 0 auto -52px;
 }
 
-#wrap > .content {
-    padding-top: 50px;
-}
-
-#wrap > .login {
-    padding-top: 50px;
+#wrap > div {
+  padding-top: 50px;
 }
 
 /* Set the fixed height of the footer here */
