@@ -8,9 +8,18 @@ angular.module('medistreamApp', [
     'fmt',
     'http-auth-interceptor',
     'ui.bootstrap.carousel',
-    'ui.bootstrap.buttons'
+    'ui.bootstrap.buttons',
+    'pascalprecht.translate'
   ])
-  .config(function ($routeProvider, $httpProvider, $resourceProvider) {
+  .config(function ($routeProvider, $httpProvider, $resourceProvider, $translateProvider, $localeProvider) {
+
+    var locale = localStorage.getItem('locale') || $localeProvider.$get().id.split('-')[0];
+    $translateProvider.preferredLanguage(locale);
+    $translateProvider.useStaticFilesLoader({
+      prefix: 'i18n/',
+      suffix: '.json'
+    });
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/landing.html',

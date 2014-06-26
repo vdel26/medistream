@@ -21,6 +21,7 @@ html, body {
     height: 52px;
 }
 
-.navbar.footer {
-    margin-bottom: 0px;
+.navbar-fixed-bottom {
+  position: relative;
+  margin-bottom: 0px;
 }
