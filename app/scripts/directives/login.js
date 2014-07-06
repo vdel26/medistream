@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('medistreamApp')
-  .directive('login', function ($rootScope, $http, $cookieStore, $location, UserResource, authService) {
+  .directive('login', function ($rootScope, $http, $cookieStore, $location, UserResource, SpecialityResource, authService) {
     return {
       restrict: 'A',
       templateUrl: 'template/login/login.html',
       link: function ($scope) {
+
+        $scope.specialities = SpecialityResource.query();
 
         var onLoginSuccess = function (response) {
 
@@ -42,7 +44,8 @@ angular.module('medistreamApp')
           var user = {
             username: $scope.email,
             email: $scope.email,
-            password: $scope.password
+            password: $scope.password,
+            speciality: $scope.speciality
           };
 
           // register new user

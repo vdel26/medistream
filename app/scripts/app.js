@@ -9,6 +9,7 @@ angular.module('medistreamApp', [
     'http-auth-interceptor',
     'ui.bootstrap.carousel',
     'ui.bootstrap.buttons',
+    'ui.bootstrap.typeahead',
     'pascalprecht.translate'
   ])
   .config(function ($routeProvider, $httpProvider, $resourceProvider, $translateProvider, $localeProvider) {

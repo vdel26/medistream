@@ -47,6 +47,12 @@
           <label class="control-label" for="inputPasswordRepeat">Repeat password</label>
           <input type="password" class="form-control" id="inputPasswordRepeat" ng-model="passwordRepeat" placeholder="Repeat password" required>
         </div>
+        <div class="form-group" ng-class="{'has-error': !speciality.id}">
+          <label class="control-label" for="inputSpeciality">Speciality</label>
+          <input type="text" id="inputSpeciality" class="form-control" placeholder="Speciality"
+                 typeahead="speciality as speciality.name for speciality in specialities | filter:$viewValue"
+                 ng-model="speciality" typeahead-editable="false">
+        </div>
         <div class="form-group">
           <small>By clicking on "Create an account" below, you are agreeing to the <a href="#terms" target="_blank">Terms
             of Service</a> and the <a href="#terms" target="_blank">Privacy Policy</a>.
