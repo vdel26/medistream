@@ -1,3 +1,20 @@
+<a name="0.2.0"></a>
+## 0.2.0 (2014-07-06)
+
+
+#### Features
+
+* **contact:** add contact information and form to send a message ([85a95c31](https://github.com/daniel81bcn/medistream/commit/85a95c31629e2bd4278f1888c674a478b7aa27c1))
+* **cookies:** add a cookie warning according the EU cookie law ([400a67b6](https://github.com/daniel81bcn/medistream/commit/400a67b6b01a87903398c84ca50ad677f8ecdb59))
+* **i18n:** set up i18n using angular-translate ([bdc62923](https://github.com/daniel81bcn/medistream/commit/bdc629235a13dffa6f296b88ef437a7ba26d1360))
+* **landing:**
+  * don't show the landing page if the user is already registered ([508f1c6c](https://github.com/daniel81bcn/medistream/commit/508f1c6ca88e47b2072c7a6338edb25f6c5b326c))
+  * hide speciality selection ([76b562da](https://github.com/daniel81bcn/medistream/commit/76b562da35a5efb7352a2f832e1d47e983ba9242))
+* **user:**
+  * page to edit the current user's data [#68905694] ([b4267822](https://github.com/daniel81bcn/medistream/commit/b4267822a09cc615932e33d6c6b053c74a984042))
+  * use email instead of username ([9aaa1ae2](https://github.com/daniel81bcn/medistream/commit/9aaa1ae28ced0c8f76f8b88796075294af1c9c6e))
+
+
 <a name="0.1.1"></a>
 ### 0.1.1 (2014-06-19)
 
