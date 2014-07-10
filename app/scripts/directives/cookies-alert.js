@@ -1,18 +1,18 @@
 'use strict';
 
 angular.module('medistreamApp')
-  .directive('cookiesAlert', function ($cookieStore) {
+  .directive('cookiesAlert', function () {
     return {
       restrict: 'A',
       templateUrl: 'template/cookies/cookies-alert.html',
       link: function ($scope, $element) {
 
         $scope.setCookieLawAccepted = function () {
-          $cookieStore.put('cookielaw', true);
+          localStorage.setItem('cookielaw', true);
         };
 
         // hide alert if user closed before
-        if ($cookieStore.get('cookielaw')) {
+        if (localStorage.getItem('cookielaw')) {
           $element.hide();
         }
       }
