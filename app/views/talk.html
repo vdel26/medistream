@@ -2,13 +2,16 @@
   <ol class="breadcrumb">
     <li><a href="#">Home</a></li>
     <li><a href="#events">Events</a></li>
-    <li><a href="#events/{{event.id}}">{{event.title}}</a></li>
+    <li><a ng-href="#events/{{event.id}}">{{event.title}}</a></li>
     <li class="active">{{talk.title}}</li>
   </ol>
   <div class="row">
     <div class="col-md-12">
       <h2>{{talk.title}}</h2>
-      <p class="lead"><span class="label label-primary">55,00 €</span> <a>Purchase now</a> or <a>use a code</a> to watch the entire talk.</p>
+      <p class="lead">
+        <span class="label label-default">Preview</span>
+        <a class="text-danger" href="">Purchase</a> the event or <a class="text-danger" href="">use a code</a> to watch the entire video.
+      </p>
     </div>
   </div>
   <div class="row">
