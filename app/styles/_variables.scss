@@ -1,1 +1,7 @@
-//$brand-primary: #42aa33;
+// brand color
+$brand-primary: #598fbc;
+$brand-primary-light: lighten($brand-primary, 42%);
+
+// backgrounds
+$list-group-hover-bg: $brand-primary-light;
+$breadcrumb-bg: $brand-primary-light;

@@ -49,6 +49,6 @@ ul.list-clickable li {
 }
 
 ul.list-clickable li:hover {
-    background-color: #f5f5f5;
+    background-color: $list-group-hover-bg;
     cursor: pointer;
 }
