@@ -15,6 +15,10 @@ angular.module('medistreamApp', [
   .config(function ($routeProvider, $httpProvider, $resourceProvider, $translateProvider, $localeProvider) {
 
     var locale = localStorage.getItem('locale') || $localeProvider.$get().id.split('-')[0];
+
+    // FIXME uncomment this. Force the locale to Spanish
+    locale = 'es';
+
     $translateProvider.preferredLanguage(locale);
     $translateProvider.useStaticFilesLoader({
       prefix: 'i18n/',
