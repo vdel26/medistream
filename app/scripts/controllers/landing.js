@@ -5,13 +5,13 @@ angular.module('medistreamApp')
     $scope.slides = [
       {
         image: 'images/slide1.png',
-        title: 'Slide 1',
-        description: 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
+        title: 'slide1.title',
+        description: 'slide1.description'
       },
       {
         image: 'images/slide2.png',
-        title: 'Slide 2',
-        description: 'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'
+        title: 'slide2.title',
+        description: 'slide2.description'
       }
     ];
 
