@@ -164,12 +164,17 @@
 
   #step1 {
     background: #fff url(../images/step1.png) right 0 no-repeat;
-    background-size: 446px 344px;
+    background-size: 443px;
+  }
+
+  #step2 {
+    background: #fff url(../images/step2.png) no-repeat right 0;
+    background-size: 443px;
   }
 
   #step3 {
     background: #fff url(../images/step3.png) no-repeat right 0;
-    background-size: 443px 303px;
+    background-size: 443px;
   }
 
   .tutorial-list .animate-in {
