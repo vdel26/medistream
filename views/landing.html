@@ -1,0 +1,84 @@
+<div class="landing">
+  <carousel class="hidden-xs" interval="3000">
+    <slide ng-repeat="slide in slides">
+      <img ng-src="{{slide.image}}" style="margin:auto;">
+      <div class="carousel-caption">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h1>{{slide.title|translate}}</h1>
+              <h3>{{slide.description|translate}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </slide>
+  </carousel>
+
+  <section id="tutorial" class="tutorial container text-center">
+    <br>
+    <h1>{{'slogan.title'|translate}}</h1>
+    <h2>{{'slogan.description'|translate}}</h2>
+    <p ng-hide="user">
+      <button type="button" class="btn btn-default btn-lg" ng-click="showLogin()">{{'Log in'|translate}}</button>
+      <button type="button" class="btn btn-primary btn-lg" ng-click="showLogin(true)">{{'Register'|translate}}</button>
+    </p>
+
+    <!-- ### Start of tutorials -->
+    <ul id="user-site" class="tutorial-list wrapper active">
+      <li id="step1" class="image-right animate-in">
+        <h4>{{'step1.title'|translate}}</h4>
+        <p>{{'step1.description'|translate}}</p>
+        <p class="details">{{'step1.details'|translate}}</p>
+      </li>
+
+      <!-- SPECIALITIES NOT SHOWED HERE YET
+      <li class="question animate-in">
+        <h4>What is your speciality?</h4>
+        <div class="btn-group tabs">
+          <label class="btn btn-lg btn-default" ng-repeat="s in specialities" ng-model="conf.speciality" btn-radio="'{{s}}'">{{s}}</label>
+        </div>
+      </li>
+      -->
+
+      <li id="step2" class="image-right animate-in">
+        <h4>{{'step2.title'|translate}}</h4>
+        <p>{{'step2.description'|translate}}</p>
+        <p class="details">{{'step2.details'|translate}}</p>
+      </li>
+
+      <li class="animate-in" style="padding-bottom: 66px;">
+        <h4>{{'step3.title'|translate}}</h4>
+        <p>
+          {{'step3.description'|translate}}
+          <br>
+          {{'step3.details'|translate}}
+        </p>
+        <img src="images/step3.png" width="1054" class="full-size"/>
+      </li>
+
+      <li class="animate-in">
+        <h4>{{'step4.title'|translate}}</h4>
+        <p>
+          {{'step4.description'|translate}}
+          <br>
+          {{'step4.details'|translate}}
+        </p>
+        <img src="images/step4.png" class="full-size thumbnail" style="margin: auto;"/>
+      </li>
+
+      <li class="animate-in">
+        <h4>{{'step5.title'|translate}}</h4>
+        <p>
+          {{'step5.description'|translate}}
+          <br>
+          {{'step5.details'|translate}}
+        </p>
+        <div class="hero-octicon">
+          <h1><a href="#events"><span class="glyphicon glyphicon-film" style="top: 10px;"></span></a></h1>
+        </div>
+      </li>
+    </ul>
+    <!-- End of user site tutorial -->
+  </section>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li class="active">Events</li>
+  </ol>
+  <ul class="list-unstyled list-clickable">
+    <li ng-repeat="event in events" ng-click="select(event.id)">
+      <div class="row">
+        <div class="col-md-8">
+          <h3 style="margin-top: 0px;">{{event.title}}</h3>
+          <p class="lead lead-short">{{event.abstract}}</p>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body text-center">
+              <p ng-hide="event.organizer.logo"><strong>{{event.organizer.name}}</strong></p>
+              <p ng-show="event.organizer.logo" class="text-center">
+                <a ng-href="{{event.organizer.website}}" target="_blank" class="thumbnail"><img ng-src="{{event.organizer.logo}}"></a>
+              </p>
+              <p><span class="glyphicon glyphicon-map-marker"></span> {{event.location}}</p>
+              <p><span class="glyphicon glyphicon-time"></span> {{event.start_date|date}} - {{event.finish_date|date}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

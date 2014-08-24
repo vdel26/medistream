@@ -1,0 +1,54 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/f2f498c6.medistream.css"/>
+  </head>
+  <body ng-app="medistreamApp" class="ng-cloak">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- header -->
+    <div ng-include="'views/header.html'"></div>
+
+    <div id="wrap">
+
+      <div>
+        <!-- alert for EU cookie law -->
+        <div cookies-alert></div>
+
+        <!-- content -->
+        <div class="content" ng-view="" ng-if="!loginRequired"></div>
+
+        <!-- login -->
+        <div class="login" login ng-if="loginRequired"></div>
+      </div>
+
+      <!-- helper for sticky footer -->
+      <div id="push"></div>
+    </div>
+
+    <!-- footer -->
+    <div ng-include="'views/footer.html'"></div>
+
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.3.0/es5-shim.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/json3/3.3.1/json3.min.js"></script>
+    <![endif]-->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.15/angular.js"></script>
+
+    <script src="scripts/fcc09e7c.vendor.js"></script>
+
+    <script src="scripts/87190ba9.scripts.js"></script>
+</body>
+</html>
