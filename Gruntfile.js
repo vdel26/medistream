@@ -387,9 +387,9 @@ module.exports = function (grunt) {
           tag: pkg.version
         }
       },
-      remote: {
+      pages: {
         options: {
-          remote: 'https://github.com/daniel81bcn/Medistream.git',
+          remote: 'https://github.com/vdel26/medistream.git',
           branch: 'gh-pages',
           tag: pkg.version
         }
@@ -435,6 +435,8 @@ module.exports = function (grunt) {
     'usemin',
     'htmlrefs'
   ]);
+
+  grunt.registerTask('deploy', ['buildcontrol:pages']);
 
   grunt.registerTask('default', [
     'newer:jshint',
